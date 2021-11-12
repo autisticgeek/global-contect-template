@@ -40,11 +40,26 @@ footer {
   align-items: center;
   padding: 16px;
 }
-nav{
+nav {
   display: flex;
   column-gap: 3rem;
+}
+p {
+  margin-bottom: 1rem;
 }
 
 input {
   display: block;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+td {
+  padding: 0 5px;
+  /* border:thin solid */
+}
+hr {
+  margin: 1rem 0;
 }

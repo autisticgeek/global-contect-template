@@ -6,8 +6,8 @@ export default function View() {
   return (
     <main>
       <div>
-        <p>Global name (updates live as you change it):{globalContext.name}</p>
-        <p>Global email (form must be submitted):{globalContext.emial}</p>
+        <p>Global name (updates live as you change it): {globalContext.name}</p>
+        <p>Global email (form must be submitted): {globalContext.email}</p>
       </div>
     </main>
   );

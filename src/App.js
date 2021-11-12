@@ -8,20 +8,25 @@ import Footer from "./components/Footer";
 //dynamic components
 import Input from "./routes/Input";
 import View from "./routes/View";
+import Cart from "./routes/Cart";
 
 //context provider
 import { GlobalContextProvider } from "./context/globalContext";
+import { CartContextProvider } from "./context/Cart";
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalContextProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Input />} />
-          <Route path="/view" element={<View />} />
-        </Routes>
-        <Footer />
+        <CartContextProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Input />} />
+            <Route path="/view" element={<View />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+          <Footer />
+        </CartContextProvider>
       </GlobalContextProvider>
     </BrowserRouter>
   );

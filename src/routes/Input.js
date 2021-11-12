@@ -1,17 +1,21 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "./../context/globalContext";
+import { CartContext } from "./../context/Cart";
+
 export default function Input() {
   const { updateEmail, updateName, globalContext } = useContext(GlobalContext);
   const [componentState, setComponentState] = useState("");
   const [email, setEmail] = useState("");
+
+  const { addToCart } = useContext(CartContext);
   return (
     <main>
       <div>
         <label>
           <strong>Global Context:</strong> This field update global state as you
-          change it.
+          change it. It changes any component that is watching the context. including the footer of this page.
           <input
-            placeholder="Global Name"
+            placeholder="Your name"
             value={globalContext.name}
             onChange={(e) => updateName(e.target.value)}
           />
@@ -52,6 +56,18 @@ export default function Input() {
             Save Email
           </button>
         </form>
+        <hr />
+        <button
+          onClick={() =>
+            addToCart({
+              id: "5d288fd-1b2a-d070-a434-312cd4b764b4",
+              name: "Bowling Ball",
+              quanity: 1,
+            })
+          }
+        >
+          Add A Bowling Ball To Cart
+        </button>
       </div>
     </main>
   );

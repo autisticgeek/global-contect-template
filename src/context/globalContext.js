@@ -8,6 +8,7 @@ export function GlobalContextProvider({ children }) {
     email: "",
   });
   const reducer = (action) => {
+    console.log(action)
     switch (action.type) {
       default:
         break;
