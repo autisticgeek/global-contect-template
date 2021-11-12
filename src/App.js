@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+//react-router-dom V6
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//static components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+//dynamic components
+import Input from "./routes/Input";
+import View from "./routes/View";
+
+//context provider
+import { GlobalContextProvider } from "./context/globalContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalContextProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Input />} />
+          <Route path="/view" element={<View />} />
+        </Routes>
+        <Footer />
+      </GlobalContextProvider>
+    </BrowserRouter>
   );
 }
 
